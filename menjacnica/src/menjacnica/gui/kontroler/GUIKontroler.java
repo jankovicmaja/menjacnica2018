@@ -19,12 +19,14 @@ public class GUIKontroler {
 	public static MenjacnicaInterface sistem = new Menjacnica();
 
 	public static MenjacnicaGUI gp;
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenjacnicaGUI frame = new MenjacnicaGUI();
-					frame.setVisible(true);
+					GUIKontroler.gp = new MenjacnicaGUI();
+					GUIKontroler.gp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
