@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JCheckBox;
 
 import menjacnica.Valuta;
+import menjacnica.gui.kontroler.GUIKontroler;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -177,7 +178,8 @@ public class ObrisiKursGUI extends JFrame {
 			btnDodaj = new JButton("Obrisi");
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					obrisiValutu();
+					GUIKontroler.obrisiValutu(valuta);
+					dispose();
 				}
 			});
 			btnDodaj.setEnabled(false);
@@ -226,15 +228,4 @@ public class ObrisiKursGUI extends JFrame {
 		textFieldSrednjiKurs.setText(""+valuta.getSrednji());				
 	}
 
-	private void obrisiValutu() {
-		try{
-			glavniProzor.sistem.obrisiValutu(valuta);
-			
-			glavniProzor.prikaziSveValute();
-			dispose();
-		} catch (Exception e1) {
-			JOptionPane.showMessageDialog(contentPane, e1.getMessage(),
-					"Greska", JOptionPane.ERROR_MESSAGE);
-		}
-	}
 }
